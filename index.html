@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aravind Subramanian S | Portfolio</title>
+    <title>Interactive Resume - Aravind Subramanian S</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +42,18 @@
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-6xl font-black text-[#0B3954]">Aravind Subramanian S</h1>
             <p class="text-xl md:text-2xl font-semibold text-[#087E8B] mt-2">AI Engineer & Full-Stack Developer</p>
+            <!-- MOVED CONTACT LINKS TO TOP -->
+             <div class="flex justify-center items-center space-x-6 mt-4 md:mt-6 pb-6 border-b-2 border-gray-300">
+                <a href="https://linkedin.com/in/saravindsubbu" target="_blank" class="text-[#0B3954] hover:text-[#087E8B] transition-colors text-lg font-medium">
+                   <span class="text-xl">&#128279;</span> LinkedIn
+                </a>
+                 <a href="https://github.com/sazzycooltehc/Fullstack_Apps" target="_blank" class="text-[#0B3954] hover:text-[#087E8B] transition-colors text-lg font-medium">
+                   <span class="text-xl">&#128187;</span> GitHub
+                </a>
+                <a href="mailto:aravindsubbu.work@gmail.com" class="text-[#0B3954] hover:text-[#087E8B] transition-colors text-lg font-medium">
+                   <span class="text-xl">&#128231;</span> Email
+                </a>
+            </div>
         </header>
 
         <main class="space-y-12">
@@ -119,20 +131,7 @@
                 </div>
             </section>
             
-            <footer id="contact" class="text-center pt-8">
-                <h2 class="text-2xl font-bold text-[#0B3954] mb-4">Connect & Collaborate</h2>
-                 <div class="flex justify-center items-center space-x-6">
-                    <a href="https://linkedin.com/in/saravindsubbu" target="_blank" class="text-[#087E8B] hover:text-[#FF5A5F] transition-colors">
-                       <span class="text-2xl">&#128279;</span> Social
-                    </a>
-                     <a href="https://github.com/sazzycooltehc/Fullstack_Apps" target="_blank" class="text-[#087E8B] hover:text-[#FF5A5F] transition-colors">
-                       <span class="text-2xl">&#128187;</span> Tech
-                    </a>
-                    <a href="mailto:aravindsubbu.work@gmail.com" class="text-[#087E8B] hover:text-[#FF5A5F] transition-colors">
-                       <span class="text-2xl">&#128231;</span> Professional
-                    </a>
-                </div>
-            </footer>
+            <!-- FOOTER CONTENT (Now just for padding/structure, no contact info) -->
         </main>
 
     </div>
@@ -157,7 +156,8 @@
             new Chart(skillsCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Web Dev', 'Gen AI', 'Cloud & DBs'],
+                    // Shortened labels for better fit in the legend
+                    labels: ['Web Dev & Methodology', 'AI & ML', 'Cloud & DBs'], 
                     datasets: [{
                         label: 'Skill Distribution',
                         data: [36, 33, 31],

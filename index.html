@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Aravind</title>
+    <title>Portfolio | Aravind SS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 450px;
+            max-width: 450px; /* Kept max-width for uniformity */
             margin-left: auto;
             margin-right: auto;
             height: 300px;
@@ -64,11 +64,21 @@
                 </p>
             </section>
             
+            <!-- Existing High-Level Skills Chart -->
             <section id="skills" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 class="text-2xl font-bold text-[#0B3954] text-center mb-4">Core Competency Distribution</h2>
                  <p class="text-center text-gray-600 mb-8">A multi-faceted skill set balanced across AI, Cloud technologies, and modern development methodologies.</p>
                 <div class="chart-container">
                     <canvas id="skillsChart"></canvas>
+                </div>
+            </section>
+
+            <!-- NEW LANGUAGE PROFICIENCY CHART -->
+            <section id="languages" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#0B3954] text-center mb-4">Programming Language Proficiency</h2>
+                 <p class="text-center text-gray-600 mb-8">Detailed breakdown of core languages driving full-stack and machine learning solutions, scored 0-100%.</p>
+                <div class="chart-container">
+                    <canvas id="languageChart"></canvas>
                 </div>
             </section>
 
@@ -138,6 +148,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // General Chart Tooltip Configuration
             const chartTooltipConfig = {
                 callbacks: {
                     title: function(tooltipItems) {
@@ -152,6 +163,7 @@
                 }
             };
             
+            // 1. Core Competency Doughnut Chart
             const skillsCtx = document.getElementById('skillsChart').getContext('2d');
             new Chart(skillsCtx, {
                 type: 'doughnut',
@@ -162,9 +174,9 @@
                         label: 'Skill Distribution',
                         data: [36, 33, 31],
                         backgroundColor: [
-                            '#0B3954',
-                            '#087E8B',
-                            '#FF5A5F'
+                            '#0B3954', // Dark Blue
+                            '#087E8B', // Teal Blue
+                            '#FF5A5F'  // Salmon Red
                         ],
                         borderColor: '#FFFFFF',
                         borderWidth: 4,
@@ -189,6 +201,52 @@
                         tooltip: chartTooltipConfig
                     },
                     cutout: '60%'
+                }
+            });
+
+            // 2. Programming Language Proficiency Bar Chart (New)
+            const languageCtx = document.getElementById('languageChart').getContext('2d');
+            new Chart(languageCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Python', 'TypeScript', 'JavaScript', 'Java'], 
+                    datasets: [{
+                        label: 'Proficiency Score (%)',
+                        data: [75, 85, 80, 65], // Estimated scores based on profile
+                        backgroundColor: [
+                            '#0B3954', 
+                            '#087E8B', 
+                            '#FF5A5F', 
+                            '#4B6587' // Muted Blue/Gray
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Horizontal bars
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Estimated Proficiency (0-100%)',
+                                color: '#0B3954',
+                                font: { size: 14, family: 'Inter' }
+                            },
+                            ticks: { color: '#0B3954' }
+                        },
+                        y: {
+                            ticks: { color: '#0B3954' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }, 
+                        tooltip: chartTooltipConfig
+                    }
                 }
             });
         });
